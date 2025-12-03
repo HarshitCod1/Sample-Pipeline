@@ -15,7 +15,7 @@ on:
 
 jobs:
 
-  on-push:
+  on-push: # New job for push events
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
