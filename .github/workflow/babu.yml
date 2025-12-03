@@ -8,26 +8,23 @@ on:
   pull_request:
     branches:
       - master
-      
+      - test
 
 jobs:
-  on-push: # job 1
-    runs-on: ubuntu-latest
 
+  on-push:
+    runs-on: ubuntu-latest
     steps:
-      - name: Running on master branch #name of step1
-        run: echo "Running on master push"
       - name: Print city
-        run: echo "kolkata"
-         
+        run: echo "Kolkata"
+
       - name: Running on test branch
         if: github.ref == 'refs/heads/test'
         run: echo "Running on test push"
 
-  on-pull-requests: #job name
-      runs-on: ubuntu-latest
-      steps:
-      -name: Running on pull requests # job name
-      run: echo "Running on pull requests"
 
- 
+  on-pull-requests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running on pull requests
+        run: echo "Running on pull requests"
