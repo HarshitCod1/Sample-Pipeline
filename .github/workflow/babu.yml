@@ -1,4 +1,4 @@
-name: Multi-Event Workflow
+name: Multi-Event pipeline / workflow
 
 on:
   push:
@@ -12,18 +12,14 @@ on:
 
 jobs:
 
-  push-job:
-    name: Job for Push Event
-    if: github.event_name == 'push'
+  on-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Running on Push Event
-        run: echo "This job runs only when code is pushed to master or test branches"
+      - name: Running on master branch
+        run: echo "Running on master push"
 
-  pr-job:
-    name: Job for Pull Request Event
-    if: github.event_name == 'pull_request'
+  on-pull-requests:
     runs-on: ubuntu-latest
     steps:
-      - name: Running on Pull Request Event
-        run: echo "This job runs only when a pull request targets master or test branches"
+      - name: Running on pull requests
+        run: echo "Running on pull requests"
