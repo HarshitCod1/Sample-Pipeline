@@ -18,10 +18,7 @@ jobs:
       - name: Print city
         run: echo "Kolkata"
 
-      - name: Running on test branch
-        if: github.ref == 'refs/heads/test'
-        run: echo "Running on test push"
-
+    
 
   on-pull-requests:
     runs-on: ubuntu-latest
