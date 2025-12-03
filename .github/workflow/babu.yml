@@ -1,17 +1,19 @@
 name: Multi-Event pipeline / workflow
 
 on:
+  workflow_dispatch:   # Allows manual trigger from GitHub Actions UI
+
   push:
     branches:
       - master
       - test
+
   pull_request:
     branches:
       - master
       - test
 
 jobs:
-
   on-push:
     runs-on: ubuntu-latest
     steps:
