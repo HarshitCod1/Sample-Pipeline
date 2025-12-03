@@ -5,34 +5,33 @@ on:
     branches:
       - master
       - test
+
   pull_request:
     branches:
       - master
-      
+      - test
+
   workflow_dispatch:
 
 jobs:
 
   on-push:
-
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
-      - name: Running on master branch
-        run: echo "Running on master push"
+      - name: Running on push
+        run: echo "Running on master/test push"
 
   on-pull-requests:
-
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Running on pull requests
         run: echo "Running on pull requests"
- 
+
   on-workflow-dispatch:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - name: Running on workflow dispatch
         run: echo "Running on workflow dispatch"
-
