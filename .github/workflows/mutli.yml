@@ -25,5 +25,9 @@ jobs:
     steps:
       - name: Running on pull requests
         run: echo "Running on pull requests"
-
+  on-game:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running on game event
+        run: echo "Running on game event"
 
