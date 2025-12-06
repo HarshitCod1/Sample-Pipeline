@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Running on push
-        run: echo "Running on master/test push"
+        run: echo "Running on here master/test push"
 
   on-pull_request:
     if: github.event_name == 'pull_request'
