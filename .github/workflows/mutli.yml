@@ -1,0 +1,44 @@
+name: Multi-Event pipeline / workflow
+on:
+  push:
+    branches:
+      - master
+      - test
+
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+jobs:
+
+  on-push: # New job for push events
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running on push
+        run: echo "Running on here master/test push"
+
+  on-pull_request:
+    if: github.event_name == 'pull_request'
+   
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running on pull requests
+        run: echo "Running on pull requests"
+  on-pull_request_closed:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Raunning on pull_request closed
+        run: echo "Running on pull_request closed"
+
+         
+  on-game:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running on game event
+        run: echo "Running on game event"
+
