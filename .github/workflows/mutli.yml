@@ -10,6 +10,7 @@ on:
       - master
     types:
       - closed
+      - opened
 
 jobs:
 
@@ -27,14 +28,22 @@ jobs:
     steps:
       - name: Running on pull requests
         run: echo "Running on pull requests"
+
+  
   on-pull_request_closed:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    
     runs-on: ubuntu-latest
     steps:
       - name: Raunning on pull_request closed
         run: echo "Running on pull_request closed"
-
+ 
+   
+  on-pull_request_opened:
+    if: github.event_name == 'pull_request' && github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running on pull_request opened
+        run: echo "Running on pull_request opened"
          
   on-game:
     runs-on: ubuntu-latest
